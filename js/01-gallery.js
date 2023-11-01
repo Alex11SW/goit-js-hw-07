@@ -9,7 +9,7 @@ const list = document.querySelector('.gallery');
 function createGalleryItem({ original, preview, description }) {
     return `
         <li class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
       src="${preview}"
@@ -22,20 +22,21 @@ function createGalleryItem({ original, preview, description }) {
 }
 
 const galleryMarkup = galleryItems.map(createGalleryItem).join("");
-list.insertAdjacentHTML('beforeend', galleryMarkup);4
-list.addEventListener("click", handClick);
+list.insertAdjacentHTML('beforeend', galleryMarkup);
+list.addEventListener("click", handleClick);
 
-function handClick(event) {
-//event.preventDefault();
+function handleClick(event) {
+event.preventDefault();
    // console.log(event.target);
     const currentProduct = event.target.closest('.gallery__item');
     if (currentProduct) {
     const img = currentProduct.querySelector('.gallery__image');
   
     const largeImageUrl = img.dataset.source;
-  
-    window.open(largeImageUrl, '_blank');
+       const instance = basicLightbox.create(`
+            <img src="${largeImageUrl}" alt="${img.alt}">
+        `);
+
+        instance.show();
   }
 }
-
-НР
