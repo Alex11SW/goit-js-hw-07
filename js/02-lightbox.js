@@ -27,14 +27,14 @@ const lightbox = new SimpleLightbox('.gallery a', {
     captionsData: 'alt',
 });
 
-lightbox.on('show.simplelightbox', (e) => {
-    const caption = e.caption;
-    const captionElement = document.querySelector('.sl-caption');
+// lightbox.on('show.simplelightbox', (e) => {
+//     const caption = e.caption;
+//     const captionElement = document.querySelector('.sl-caption');
 
-    if (captionElement) {
-        captionElement.textContent = caption;
-        setTimeout(() => {
-            captionElement.style.opacity = 1;
-        }, 250);
-    }
-});
+//     if (captionElement) {
+//         captionElement.textContent = caption;
+//         setTimeout(() => {
+//             captionElement.style.opacity = 1;
+//         }, 250);
+//     }
+// });
